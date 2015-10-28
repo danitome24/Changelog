@@ -1,5 +1,5 @@
 {
-    "name": "sred/zf2-changelog",
+    "name": "sred/changelog",
     "description": "Create a previous changelog based on your git log",
     "license": "GPL V3",
     "authors": [
