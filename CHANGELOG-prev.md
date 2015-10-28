@@ -8,14 +8,13 @@
 	*   application/config: Removing development modules
 * #### Issue #86
 	*   AbstractRestfulController: Solving a little bug
-	*   AbstractRestfulController: Solving comments
 	*   AbstractRestfulController: Adding rest for controllers on centers
 * #### Issue #94
-	*   khan/tota11y: Solving comments and adding dynamic route to script
+	*   khan/tota11y: Adding dynamic route to script
 	*   composer/script: Adding post process of composer tu run npm commands on used plugins
 * #### Issue #54
-	*   bjyauthorize/authorize: Solving comments v2 and modified navbar roles
-	*   bjyauthorize/authorize: Solving comments, adding new functionalities and refactoring code
+	*   bjyauthorize/authorize: Modified navbar roles
+	*   bjyauthorize/authorize: Adding new functionalities and refactoring code
 	*   bjyauthorize/authorize: Installing and working with bjyauthorize
 * #### Issue #98
 	*   twbs/bootstrap: Updating bootstrap css and js and jquery to newest version
@@ -29,9 +28,6 @@
 	*   composer.json: Deleted dist files in autoload config
 	*   composer.json: Adding development tool to composer
 * #### Issue #55
-	*   Intranet/Sync/factories: Solving comments v3
-	*   Solving comments v2
-	*   Solving comments
 	*   Adding newline at end of file
 	*   Making our entities be factories
 * #### Issue #117
@@ -52,21 +48,14 @@
 	*   Adding end line
 	*   Creating .gitlab-ci.yml file
 * #### Issue #104
-	*   Solving comments v2
-	*   Solving comments
 	*   Fixing routing from new navbar
 	*   Fixing global parameters
 	*   Refactoring router in extranet, correcting errors on breadcrumb extranet and building an api to translate entities code into entities id
 * #### Issue #106
-	*   Solving comments
 	*   Changing position of edit breadcrumb
 * #### Issue #113
 	*   Changing position of breadcrumb to top
 * #### Issue #102
-	*   Solving comments v3
-	*   Solving comments v2
-	*   Solving comments
-	*   Solving comments
 	*   Adding new navbar actions
 	*   Adding new navbar actions
 * #### Issue #93
@@ -80,7 +69,6 @@
 * #### Issue #109
 	*   Link fixed in error/404 for Intranet module
 * #### Issue #91
-	*   Solving comments
 	*   Adding intranet navigation
 * #### Issue #100
 	*   Update method in EntityTable fixed
@@ -96,14 +84,9 @@
 	*   Autoformat
 	*   Link at login and intranet layout changed
 * #### Issue #60
-	*   Solving comments v4
-	*   Sovling comments v3
-	*   Solving comments and unifying parameters of Center entity
-	*   Solving comments v2
-	*   Solving comments
+	*   Unifying parameters of Center entity
 	*   Defining translation of languages on config
 * #### Issue #42
-	*   Solving comments
 	*   Renaming style tags from docnet to guido
 * #### Issue #64
 	*   Changed in_array for isset
@@ -128,7 +111,6 @@
 	*   Action URL fixed
 	*   New center partial for add and edit actions
 * #### Issue #49
-	*   Solving comments
 	*   Deleted view helper and using translatePlural
 	*   Creating our own view helper to translate plural
 * #### Issue #58
@@ -137,26 +119,15 @@
 	*   lock-modal-all now works without reloading the page
 	*   Publish all now works without reload the page
 * #### Issue #52
-	*   Solving comments v4
-	*   Solving comments v3
-	*   Solving comments v2
-	*   Solving comments and adding languages from config
-	*   Solving comments
+	*   Adding languages from config
 	*   Language from cookie and browser
 * #### Issue #96
 	*   Solving problem with logo on firefox
 * #### Issue #80
-	*   Solving comments
 	*   Changing style of sidebar
 * #### Issue #76
 	*   Fixed bug of center in application language or default language
 * #### Issue #41
-	*   Solving comments v6
-	*   Solving comments v5
-	*   Solving comments v4
-	*   Solving comments v3
-	*   Solving comments v2
-	*   Solving comments
 	*   Unifying controller's plugins
 	*   Adding language by config
 * #### Issue #66
@@ -203,8 +174,6 @@
 	*   Documentation added
 	*   Partials in separate files
 * #### Issue #65
-	*   Solving comments v2
-	*   Solving comments
 	*   Controlling errors
 * #### Issue #68
 	*   Add newline
@@ -215,21 +184,14 @@
 	*   Autoformat
 	*   Revising language files
 * #### Issue #48
-	*   Solving comments
 	*   Adding new logo to project
 * #### Issue #14
-	*   Solving comments on merge request v3
-	*   Solving comments on merge request v2
-	*   Solving comments on merge request v1
 	*   Adding extranet module
 * #### Issue #38
-	*   Solving comments on new view 3 and adding composer.lock to .gitignore
+	*   Adding composer.lock to .gitignore
 	*   Solving errors on unitary tests
-	*   Solving comments on new view v2
-	*   Solving comments on new view
 	*   View changed and adding new functionalities depending on elements selected
-	*   Solving comments and adding lock entity functionality
-	*   Solving comments
+	*   Adding lock entity functionality
 	*   Adding two icon lock
 	*   Web application for centers working
 * #### Issue #57
@@ -240,13 +202,7 @@
 	*   Changing the order of the license and copyright
 	*   Adding license and copyright to Sync module
 * #### Issue #9
-	*   Solving comments v6
-	*   Solving comments v5
-	*   Solving comments v4
-	*   Solving comments v3
 	*   Delete test file
-	*   Solving comments v2
-	*   Solving comments
 	*   Changing type of functions to public
 	*   Unit test from Sync
 	*   Fixes in the synchronization
