@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# @author Daniel Tome <daniel.tome@estudiants.urv.cat>
+# @copyright 2014 Servei de Recursos Educatius (http://www.sre.urv.cat)
+#
+#Path where the changelog plugin is
+cd ../vendor/sred/changelog/
+php Generator.php $1 $2

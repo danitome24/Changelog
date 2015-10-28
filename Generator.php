@@ -30,6 +30,7 @@ const LOG_GREP = 'gitlab';
 const EXPORT_PARAM = 'export';
 const REPO_PATH = '../guido/public';
 
+
 if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
     echo "\e[33m #### CHANGELOG GENERATOR #### \e[39m \n";
     echo "\n Params: \n";
@@ -40,7 +41,7 @@ if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
 }
 
 if(isset($argv[1]) && $argv[1] == EXPORT_PARAM) {
-    exec("cp CHANGELOG-prev.md CHANGELOG.md");
+    exec("cp -rf CHANGELOG-prev.md ".REPO_PATH."CHANGELOG.md");
     echo "\e[92m Definitive changelog file generated... \e[39m \n";
     exit(0);
 }
