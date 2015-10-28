@@ -28,6 +28,7 @@ const HELP_PARAM = '--help';
 const BRANCH = 'exp_10';
 const LOG_GREP = 'gitlab';
 const EXPORT_PARAM = 'export';
+const REPO_PATH = '../guido/public';
 
 if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
     echo "\e[33m #### CHANGELOG GENERATOR #### \e[39m \n";
@@ -91,7 +92,7 @@ function getCommits($hashRange)
     $gitLogCommand = (null == $hashRange)
         ? "git log " . BRANCH . " --grep=" . LOG_GREP
         : "git log " . BRANCH . " $hashRange..HEAD --grep=" . LOG_GREP;
-    exec("cd ../guido/public; $gitLogCommand", $output);
+    exec("cd ".REPO_PATH."; $gitLogCommand", $output);
     $history = array();
     foreach ($output as $line) {
         if (strpos($line, 'commit') === 0) {
