@@ -69,18 +69,18 @@ file_put_contents(FILENAME, "\n" . $title . PHP_EOL, LOCK_EX);
 file_put_contents(FILENAME, "==================" . PHP_EOL, LOCK_EX | FILE_APPEND);
 
 $commitsLog = getCommits($hashRange);
+$lastCommitMessage = '';
 //We got all commits on $commitsLog array
 foreach ($commitsLog as $idCommit => $commits) {
     file_put_contents(FILENAME, '* **Issue #' . $idCommit . '**' . PHP_EOL, LOCK_EX | FILE_APPEND);
-    $lastCommitMessage = '';
-    foreach ($commits as $commit) {
-        $commitMessage = $commit->getMessage();
-        if ($lastCommitMessage !== $commitMessage && !preg_match('/([Ss]olving [Cc]omment[s]?)/', $commitMessage) &&
-            str_word_count($commitMessage) !== 1
-        ) {
-            file_put_contents(FILENAME, "\t" . "* " . $commit->getMessage() . PHP_EOL, LOCK_EX | FILE_APPEND);
+    $counter = count($commits)-1;
+    while ($counter >= 0) {
+        $commitMessage = $commits[$counter]->getMessage();
+        if ($lastCommitMessage !== $commitMessage && str_word_count($commitMessage) !== 1) {
+            file_put_contents(FILENAME, "\t" . "* " . $commitMessage . PHP_EOL, LOCK_EX | FILE_APPEND);
             $lastCommitMessage = $commitMessage;
         }
+        --$counter;
     }
 }
 
