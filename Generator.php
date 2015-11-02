@@ -28,7 +28,7 @@ const HELP_PARAM = '--help';
 const BRANCH = 'exp_10';
 const LOG_GREP = 'gitlab';
 const EXPORT_PARAM = 'export';
-const REPO_PATH = '../guido/public';
+const REPO_PATH = '../guido';
 
 
 if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
@@ -40,8 +40,8 @@ if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
     exit(0);
 }
 
-if(isset($argv[1]) && $argv[1] == EXPORT_PARAM) {
-    exec("cp -rf CHANGELOG-prev.md ".REPO_PATH."CHANGELOG.md");
+if (isset($argv[1]) && $argv[1] == EXPORT_PARAM) {
+    exec("cp -rf CHANGELOG-prev.md " . REPO_PATH . "CHANGELOG.md");
     echo "\e[92m Definitive changelog file generated... \e[39m \n";
     exit(0);
 }
@@ -57,7 +57,7 @@ $hashRange = (isset($argv[2]))
     ? $argv[2]
     : null;
 
-$title = "###Version " . $version;
+$title = "Version " . $version;
 
 //Getting content existing in our file
 if (file_exists(FILENAME)) {
@@ -71,9 +71,16 @@ file_put_contents(FILENAME, "==================" . PHP_EOL, LOCK_EX | FILE_APPEN
 $commitsLog = getCommits($hashRange);
 //We got all commits on $commitsLog array
 foreach ($commitsLog as $idCommit => $commits) {
-    file_put_contents(FILENAME, '* #### Issue #' . $idCommit . PHP_EOL, LOCK_EX | FILE_APPEND);
+    file_put_contents(FILENAME, '* **Issue #' . $idCommit . '**' . PHP_EOL, LOCK_EX | FILE_APPEND);
+    $lastCommitMessage = '';
     foreach ($commits as $commit) {
-        file_put_contents(FILENAME, "\t" . "* " . $commit->getMessage() . PHP_EOL, LOCK_EX | FILE_APPEND);
+        $commitMessage = $commit->getMessage();
+        if ($lastCommitMessage !== $commitMessage && !preg_match('/([Ss]olving [Cc]omment[s]?)/', $commitMessage) &&
+            str_word_count($commitMessage) !== 1
+        ) {
+            file_put_contents(FILENAME, "\t" . "* " . $commit->getMessage() . PHP_EOL, LOCK_EX | FILE_APPEND);
+            $lastCommitMessage = $commitMessage;
+        }
     }
 }
 
@@ -93,7 +100,7 @@ function getCommits($hashRange)
     $gitLogCommand = (null == $hashRange)
         ? "git log " . BRANCH . " --grep=" . LOG_GREP
         : "git log " . BRANCH . " $hashRange..HEAD --grep=" . LOG_GREP;
-    exec("cd ".REPO_PATH."; $gitLogCommand", $output);
+    exec("cd " . REPO_PATH . "; $gitLogCommand", $output);
     $history = array();
     foreach ($output as $line) {
         if (strpos($line, 'commit') === 0) {
@@ -125,5 +132,5 @@ function getCommits($hashRange)
 
 function filterMessages($message)
 {
- return preg_replace('/('.LOG_GREP.' #)([0-9])+( -)?/', ' ', $message);
+    return preg_replace('/(' . LOG_GREP . ' #)([0-9])+( -)?/', ' ', $message);
 }
