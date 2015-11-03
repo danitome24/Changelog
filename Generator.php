@@ -23,12 +23,13 @@
  */
 require_once('Commit.php');
 
+const CHANGELOG_NAME = 'CHANGELOG.md';
 const FILENAME = 'CHANGELOG-prev.md';
 const HELP_PARAM = '--help';
 const BRANCH = 'exp_10';
 const LOG_GREP = 'gitlab';
 const EXPORT_PARAM = 'export';
-const REPO_PATH = '../guido';
+const REPO_PATH = '../guido/';
 
 
 if (isset($argv[1]) && $argv[1] == HELP_PARAM) {
@@ -60,7 +61,9 @@ $hashRange = (isset($argv[2]))
 $title = "Version " . $version;
 
 //Getting content existing in our file
-if (file_exists(FILENAME)) {
+if (file_exists(REPO_PATH . CHANGELOG_NAME)) {
+    $fileContent = file_get_contents(REPO_PATH . CHANGELOG_NAME);
+} else if (file_exists(FILENAME)) {
     $fileContent = file_get_contents(FILENAME);
 }
 
